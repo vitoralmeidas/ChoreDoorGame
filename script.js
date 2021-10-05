@@ -42,19 +42,22 @@ const randomChoreDoorGenerator = () => {
 const isClicked = (door) => {
     if (door.src === closedDoorPath) {
         return false;
+    } else {
+        return true;
     }
-    return true;
 }
 
 
 // Is boot? 
 // Check if a door has the game-ending ChoreBot
 
-const isBot = () => {
+const isBot = (door) => {
     if (door.src === botDoorPath) {
         return true;
+    } else {
+        return false;
     }
-    return false;
+    
 }
 
 
@@ -79,7 +82,6 @@ doorImage1.onclick = () => {
         doorImage1.src = openDoor1;
         playDoor(doorImage1);
     }
-    functionToCall();
 }
 
 doorImage2.onclick = () => {
@@ -87,7 +89,6 @@ doorImage2.onclick = () => {
         doorImage2.src = openDoor2;
         playDoor(doorImage2);
     }
-    functionToCall();
 }
 
 doorImage3.onclick = () => {
@@ -95,25 +96,42 @@ doorImage3.onclick = () => {
         doorImage3.src = openDoor3;
         playDoor(doorImage3)
     }
-    functionToCall();
+}
+
+startButton.onclick = () => {
+    startRound();
 }
 
 
 
+
+// Start Round
+
+const startRound = () => {
+    doorImage1.src = closedDoorPath;
+    doorImage2.src = closedDoorPath;
+    doorImage3.src = closedDoorPath;
+    numClosedDoors = 3;
+    currentlyPlaying = true;
+    startButton.innerHTML = 'Good Luck!';
+    randomChoreDoorGenerator();
+}
+
+
+
+
 // Gamer Over Function
+
 const gameOver = (status) => {
     if (status === 'win') {
         startButton.innerHTML = "You win! Play Again?";
     } else {
-        startButton.innerHTML = 'Game Over! Play Again?';
+        return startButton.innerHTML = 'Game Over! Play Again?';
     }
 
     currentlyPlaying = false;
 }
 
-//
 
 
-
-
-randomChoreDoorGenerator();
+startRound();
