@@ -9,8 +9,10 @@ let openDoor2;
 let openDoor3;
 let numClosedDoors = 3;
 
-// functions 
+// FUNCTIONS
 
+// Random Function
+// Generating images on the doors
 const randomChoreDoorGenerator = () => {
     const choreDoor = Math.floor(Math.random() * numClosedDoors);
     if (choreDoor === 0) {
@@ -28,6 +30,12 @@ const randomChoreDoorGenerator = () => {
     }
 }
 
+// Play Door
+// It decreases the numClosedDoors variable
+// It checks if the game-winning condition (numClosedDoors === 0) has been met and if so, calls a gameOver() function
+const playDoor = () => {
+
+}
 
 // change the door image to bot, beach and outer space
 doorImage1.onclick = () => {
