@@ -34,20 +34,26 @@ const randomChoreDoorGenerator = () => {
 // It decreases the numClosedDoors variable
 // It checks if the game-winning condition (numClosedDoors === 0) has been met and if so, calls a gameOver() function
 const playDoor = () => {
-
+    numClosedDoors --;
+    if (numClosedDoors === 0) {
+        gameOver();
+    }
 }
 
 // change the door image to bot, beach and outer space
 doorImage1.onclick = () => {
     doorImage1.src = openDoor1;
+    playDoor();
 }
 
 doorImage2.onclick = () => {
     doorImage2.src = openDoor2;
+    playDoor();
 }
 
 doorImage3.onclick = () => {
     doorImage3.src = openDoor3;
+    playDoor();
 }
 
  
