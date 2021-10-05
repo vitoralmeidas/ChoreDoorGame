@@ -6,16 +6,16 @@ let beachDoorPath = "https://content.codecademy.com/projects/chore-door/images/b
 let spaceDoorPath = "https://content.codecademy.com/projects/chore-door/images/space.svg";
 
 
-// change the door image to bot image
+// change the door image to bot, beach and outer space
 doorImage1.onclick = () => {
     doorImage1.src = botDoorPath;
 }
 
-
 doorImage2.onclick = () => {
-
+    doorImage2.src = beachDoorPath;
 }
 
 doorImage3.onclick = () => {
-
+    doorImage3.src = spaceDoorPath;
 }
+
