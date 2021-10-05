@@ -1,3 +1,5 @@
+// Global Variables
+
 let doorImage1 = document.getElementById("door1");
 let doorImage2 = document.getElementById("door2");
 let doorImage3 = document.getElementById("door3");
@@ -8,6 +10,7 @@ let openDoor1;
 let openDoor2;
 let openDoor3;
 let numClosedDoors = 3;
+let closedDoorPath = "https://content.codecademy.com/projects/chore-door/images/closed_door.svg";
 
 // FUNCTIONS
 
@@ -30,9 +33,22 @@ const randomChoreDoorGenerator = () => {
     }
 }
 
+
+// isClicked 
+// Adding this logic now protects your game from shortcut victories by making each closed door clickable only once.
+
+const isClicked = (door) => {
+    if (door.src === closedDoorPath) {
+        return false;
+    }
+    return true;
+}
+
+
 // Play Door
 // It decreases the numClosedDoors variable
 // It checks if the game-winning condition (numClosedDoors === 0) has been met and if so, calls a gameOver() function
+
 const playDoor = () => {
     numClosedDoors --;
     if (numClosedDoors === 0) {
@@ -40,22 +56,32 @@ const playDoor = () => {
     }
 }
 
-// change the door image to bot, beach and outer space
+
+
+// Changing the door image to bot, beach and outer space
 doorImage1.onclick = () => {
-    doorImage1.src = openDoor1;
-    playDoor();
+    if (!isClicked(doorImage1)) {
+        doorImage1.src = openDoor1;
+        playDoor();
+    };
 }
 
 doorImage2.onclick = () => {
-    doorImage2.src = openDoor2;
-    playDoor();
+    if(!isClicked(doorImage2)) {
+        doorImage2.src = openDoor2;
+        playDoor();
+    };
 }
 
 doorImage3.onclick = () => {
-    doorImage3.src = openDoor3;
-    playDoor();
+    if(!isClicked(doorImage3)) {
+        doorImage3.src = openDoor3;
+        playDoor()
+    };
 }
 
- 
+
+
+
 
 randomChoreDoorGenerator();
