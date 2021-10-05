@@ -46,6 +46,17 @@ const isClicked = (door) => {
 }
 
 
+// Is boot? 
+// Check if a door has the game-ending ChoreBot
+
+const isBot = () => {
+    if (door.src === botDoorPath) {
+        return true;
+    }
+    return false;
+}
+
+
 // Play Door
 // It decreases the numClosedDoors variable
 // It checks if the game-winning condition (numClosedDoors === 0) has been met and if so, calls a gameOver() function
